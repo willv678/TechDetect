@@ -18,10 +18,7 @@ haar_file = 'haarcascade_frontalface_default.xml'
 datasets = 'datasets'
 
 
-myobj = datetime.now()
-hour = myobj.hour
-minute = myobj.minute
-second = myobj.second
+
 
 
 print('Starting up...')
@@ -58,6 +55,12 @@ webcam = cv2.VideoCapture(0)
 with mp_hands.Hands(min_detection_confidence=.8, min_tracking_confidence=.05, max_num_hands=2) as hands:
     while True:
         (ret, im) = webcam.read()
+
+
+
+                                                                                                                            #HAND CODE BEGINS
+
+
         image = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
         #flip im hopefully :)
         image - cv2.flip(image, 1)
@@ -65,7 +68,6 @@ with mp_hands.Hands(min_detection_confidence=.8, min_tracking_confidence=.05, ma
         results = hands.process(image)
         image.flags.writeable = True
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-
 
         #print(results)
 
@@ -75,6 +77,11 @@ with mp_hands.Hands(min_detection_confidence=.8, min_tracking_confidence=.05, ma
                                         mp_drawing.DrawingSpec(color=(121,22,76), thickness=2, circle_radius=4),
                                         mp_drawing.DrawingSpec(color=(250, 44, 250), thickness = 2, circle_radius = 2)
                                         )
+
+
+                                                                                                                                #HAND CODE ENDS
+
+
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray, 1.3, 5)
         for (x, y, w, h) in faces:
