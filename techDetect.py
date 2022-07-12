@@ -2,6 +2,9 @@
 import cv2, sys, numpy, os, mysql.connector, uuid, mediapipe as mp, time
 from datetime import datetime
 
+from sqlalchemy import true
+
+
 mydb = mysql.connector.connect(
 	host = "localhost",
 	user = "root",
