@@ -126,14 +126,15 @@ def exit():
     print("Uploading to database...")
     
 
-
+    getTime()
     date = datetime.now()
     dateString = str(date)
     todayDate = (textwrap.shorten(dateString, 11, placeholder = ''))
     todayDate = todayDate.replace("-","_")
     print(todayDate)
-    getTime()
+    
     #checkout
+    print("attendance_"+todayDate)
     mycursor.execute("UPDATE `techdetect`.`attendance_"+todayDate+"` SET `studentCheckOutTime` = '"+ currentTime+"' WHERE (`studentID` = '"+ mainStudentID+"')")
     mydb.commit()
     print("Successfully checked out user!")
