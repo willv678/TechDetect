@@ -1,0 +1,10 @@
+Flask==1.1.2
+Flask_MySQLdb==1.0.1
+imutils==0.5.4
+mediapipe==0.8.10
+MySQL-python==1.2.5
+mysql_connector_repackaged==0.3.1
+numpy==1.21.5
+opencv_python==4.6.0.66
+requests==2.27.1
+SQLAlchemy==1.4.32

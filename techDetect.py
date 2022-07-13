@@ -1,18 +1,20 @@
 # Identify faces based off photos 
 import logging
-import cv2, sys, numpy, os, mysql.connector, uuid, mediapipe as mp, time, imutils
+import cv2, sys, numpy, os, mysql.connector, uuid, mediapipe as mp, time, imutils, getpass
 from datetime import datetime
 import textwrap
 
 from sqlalchemy import true
 
+dbUser = input("Enter SQL username: \n")
+dbPass = getpass.getpass("Enter SQL password: \n") 
 
 date = datetime.now()
 dateString = str(date)
 todayDate = (textwrap.shorten(dateString, 11, placeholder = ''))
 todayDate = todayDate.replace("-","_")
-
-studentID = "19151"
+dbPass = "Oatmeal_007"
+studentID = "90093"
 todayTime = (dateString)
 todayTime = dateString[10:]
 
@@ -21,8 +23,8 @@ todayTime = todayTime[:6]
 
 mydb = mysql.connector.connect(
 	host = "localhost",
-	user = "root",
-	password = "Oatmeal_007",
+	user = dbUser,
+	password = dbPass,
     database="techDetect"
 )
 
@@ -38,6 +40,11 @@ mycursor.execute("""CREATE TABLE IF NOT EXISTS `techDetect`.`attendance_"""+toda
   `studentCheckInTime` VARCHAR(45) NULL DEFAULT NULL,
   `studentCheckOutTime` VARCHAR(45) NULL DEFAULT NULL,
   `handRaised` TINYINT NULL,
+  PRIMARY KEY (`studentID`))
+""")
+mycursor.execute("""CREATE TABLE IF NOT EXISTS `techdetect`.`students` (
+  `studentID` INT NOT NULL,
+  `studentName` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`studentID`))
 """)
 
@@ -85,6 +92,9 @@ def faceFound():
         print( (names[prediction[0]]) +" has clocked in at: ", datetime.now() )
             
             #adds user to DB
+
+
+
         mycursor.execute("SELECT studentID FROM students WHERE studentName = '"+faceName+"'")
         ID = mycursor.fetchall()
         mainStudentID = str(ID)
