@@ -1,0 +1,38 @@
+<!--Store this code in 'update.html' file inside the 'templates' folder-->
+<html lang="en">
+	<head>
+		<title>TechDetect</title>
+		<link rel="stylesheet" href="../static/style.css">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>TechDetect</h1>
+				<ul>
+					<li><a href="{{url_for('index')}}">Index</a></li>
+					<li><a href="{{url_for('display')}}">Display</a></li>
+					<li class="active"><a href="{{url_for('update')}}">Update</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Welcome!! You are in Update Page!! </h2>						
+				</div></br></br>
+				<div class="contentbar">
+				<h1>Fill Your Details to Update</h1></br>
+			<form action="{{ url_for('update') }}" method="post" autocomplete="off">
+					<div class="msg">{{ msg }}</div>
+					<div class="worddark">Username: {{ account['username'] }}</div></br>
+					<input type="password" name="password" placeholder="Enter Your Password" class="textbox" id="password" required></br></br>
+					<input type="email" name="email" value="{{ account['email'] }}" class="textbox" id="email" required></br></br>
+					<input type="text" name="organization" value="{{ account['organization'] }}" class="textbox" id="organization" required></br></br>
+					<input type="submit" class="btn" value="Update">
+			</form>					
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

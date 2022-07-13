@@ -1,0 +1,45 @@
+<!--Store this code in 'pets.html' file inside the 'templates' folder-->
+
+<html lang="en">
+	<head>
+		<title>pets</title>
+		<link rel="stylesheet" href="../static/style.css">
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>Side Bar</h1>
+				<ul>
+					<li><a href="{{url_for('index')}}">Index</a></li>
+					<li><a href="{{url_for('display')}}">Display</a></li>
+					<li class="active"><a href="{{url_for('pets')}}">Pets</a></li>
+					<li><a href="{{url_for('update')}}">Update</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Welcome!! You are in Pets Page!! </h2>
+				</div> </br>
+				<div class="contentbar">
+					<h1>Your Pets</h1> </br>
+					<table border="1">
+						<th>Name</th>
+						<th>Animal Type</th>
+						<th>Color</th>
+						<th>Vaccination Date</th>
+						{% for pet in pet_records %}
+						<tr>
+							<td>{{ pet.name }}</td>
+							<td>{{ pet.animal_type }}</td>
+							<td>{{ pet.color }}</td>
+							<td>{{ pet.vaccination_date }}</td>
+						</tr>
+						{% endfor %}
+					<table>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

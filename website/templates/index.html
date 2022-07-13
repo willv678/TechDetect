@@ -1,0 +1,31 @@
+<!--Store this code in 'index.html' file inside the 'templates' folder-->
+<html lang="en">
+	<head>
+		<title>TechDetect</title>
+		<link rel="stylesheet" href="../static/style.css">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	</head>
+
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>TechDetect</h1>
+				<ul>
+					<li class="active"><a href="{{url_for('index')}}">Home</a></li>
+					<li><a href="{{url_for('display')}}">Students</a></li>
+					<li><a href="{{url_for('pets')}}">Pets</a></li>
+					<li><a href="{{url_for('logout')}}">Log Out</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Database Viewer </h2>						
+				</div></br></br>
+				<div class="contentbar">
+					<div class="msg">{{ msg }}</div>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!--Store this code in 'login.html' file inside the 'templates' folder-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> TechDetect Login </title>
+		<link rel="stylesheet" href="../static/style.css">	
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	</head>
+	<body>
+		<div class="logincontent" align="center">
+			<div class="logintop">
+				<img src = "gtri.jpg">
+				<h1>TechDetect Login</h1>
+			</div></br></br></br></br>
+			<div class="loginbottom">
+			<form action="{{ url_for('login')}}" method="post" autocomplete="on">
+			<div class="msg">{{ msg }}</div>
+			<input type="text" name="username" placeholder="Username" class="textbox" id="username" required></br></br>
+			<input type="password" name="password" placeholder="Password" class="textbox" id="password" required></br></br></br>
+			<input type="submit" class="btn" value="Login">
+			</form></br></br>
+			<p class="worddark"> <a class="worddark" href="{{ url_for('register')}}">New User? Register here</a></p>
+			</div>
+		</div>
+	</body>
+</html>
