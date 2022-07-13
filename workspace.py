@@ -1,4 +1,10 @@
-# Identify faces based off photos 
+from PyQt5 import QtGui
+from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QVBoxLayout
+from PyQt5.QtGui import QPixmap
+import sys
+import cv2
+from PyQt5.QtCore import pyqtSignal, pyqtSlot, Qt, QThread
+import numpy as np
 import logging
 import cv2, sys, numpy, os, mysql.connector, uuid, mediapipe as mp, time, imutils, getpass
 from datetime import datetime
@@ -6,25 +12,24 @@ import textwrap
 
 from sqlalchemy import true
 
-dbUser = input("Enter SQL username: \n")
-dbPass = getpass.getpass("Enter SQL password: \n") 
+###### pyuic5 -x gui.ui -o gui.py
 
 date = datetime.now()
 dateString = str(date)
 todayDate = (textwrap.shorten(dateString, 11, placeholder = ''))
 todayDate = todayDate.replace("-","_")
-dbPass = "Oatmeal_007"
-studentID = "90093"
+
+studentID = "19151"
 todayTime = (dateString)
 todayTime = dateString[10:]
 
 todayTime = todayTime[:6]
 
-#pyuic5 -x gui.ui -o gui.py UI COMMAND LOL!
+
 mydb = mysql.connector.connect(
 	host = "localhost",
-	user = dbUser,
-	password = dbPass,
+	user = "root",
+	password = "Oatmeal_007",
     database="techDetect"
 )
 
@@ -92,9 +97,6 @@ def faceFound():
         print( (names[prediction[0]]) +" has clocked in at: ", datetime.now() )
             
             #adds user to DB
-
-
-
         mycursor.execute("SELECT studentID FROM students WHERE studentName = '"+faceName+"'")
         ID = mycursor.fetchall()
         mainStudentID = str(ID)
@@ -202,10 +204,6 @@ for (subdirs, dirs, files) in os.walk(datasets):
 (width, height) = (130, 100)
 
 (images, labels) = [numpy.array(lis) for lis in [images, labels]]
-
-
-
-
 
 
 model = cv2.face.LBPHFaceRecognizer_create()
