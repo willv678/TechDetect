@@ -9,4 +9,4 @@ using open computer vision to detect faces and clock in and clock out students a
 The program consists of two programs, one to create the face info, with the other reading and uploading data to an mySQL database.
 
 
-MYSQL SERVER IS REQUIRED, setup info not included
+MYSQL SERVER IS REQUIRED
