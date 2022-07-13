@@ -1,10 +1,12 @@
 # Identify faces based off photos 
 import logging
-import cv2, sys, numpy, os, mysql.connector, uuid, mediapipe as mp, time, imutils
+import cv2, sys, numpy, os, mysql.connector, uuid, mediapipe as mp, time, imutils, requests
 from datetime import datetime
 import textwrap
 
 from sqlalchemy import true
+
+url = "http://172.20.195.222:8080/shot.jpg"
 
 
 date = datetime.now()
@@ -209,7 +211,9 @@ webcam.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 #HAND DETECTING
 with mp_hands.Hands(min_detection_confidence=.8, min_tracking_confidence=.8, max_num_hands=2) as hands:
     while True:
-        (ret, im) = webcam.read()
+        im_resp = requests.get(url)
+        im_arr = numpy.array(bytearray(im_resp.content), dtype=numpy.uint8)
+        im = cv2.imdecode(im_arr, -1)
 
 
 
