@@ -1,0 +1,40 @@
+<!--Store this code in 'pets.html' file inside the 'templates' folder-->
+
+<html lang="en">
+	<head>
+		<title>Student Database</title>
+		<link rel="stylesheet" href="../static/style.css">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>TechDetect</h1>
+				<ul>
+					<li><a href="{{url_for('index')}}">Home</a></li>
+					<li><a href="{{url_for('pet')}}">Attendance</a></li>
+					<li class="active"><a href="{{url_for('pets')}}">Students</a></li>
+					<li><a href="{{url_for('logout')}}">Log Out</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Student Database </h2>
+				</div> </br>
+				<div class="contentbar">
+					<h1>Students</h1> </br>
+					<table style="width:500px; font-size: 2em; border: .1em solid #AC9B62" >
+						<th>Student Name</th>
+						<th>Student ID</th>
+						{% for pet in pet_records %}
+						<tr>
+							<td>{{ pet.studentName }}</td>
+							<td style="text-align:center">{{ pet.studentID }}</td>
+						</tr>
+						{% endfor %}
+					<table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

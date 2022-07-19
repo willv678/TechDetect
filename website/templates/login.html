@@ -5,12 +5,16 @@
 		<title> TechDetect Login </title>
 		<link rel="stylesheet" href="../static/style.css">	
 		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		<link rel="techBee" href="{{ url_for('static', filename='techbee.png') }}">
 	</head>
 	<body>
 		<div class="logincontent" align="center">
 			<div class="logintop">
-				<img src = "gtri.jpg">
-				<h1>TechDetect Login</h1>
+				<img class = "bee" src="{{ url_for('static', filename='techbee.png') }}" />
+				<div style="display:inline-block;">
+					<h1>TechDetect Login</h1>
+				</div>
+				
 			</div></br></br></br></br>
 			<div class="loginbottom">
 			<form action="{{ url_for('login')}}" method="post" autocomplete="on">

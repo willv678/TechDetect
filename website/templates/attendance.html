@@ -1,0 +1,45 @@
+<!--Store this code in 'pets.html' file inside the 'templates' folder-->
+
+<html lang="en">
+	<head>
+		<title>Attendance Database</title>
+		<link rel="stylesheet" href="../static/style.css">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>TechDetect</h1>
+				<ul>
+					<li><a href="{{url_for('index')}}">Home</a></li>
+					<li class="active"><a href="{{url_for('display')}}">Attendance</a></li>
+					<li><a href="{{url_for('pets')}}">Students</a></li>
+					<li><a href="{{url_for('logout')}}">Log Out</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Attendance Database </h2>
+				</div> </br>
+				<div class="contentbar">
+					<h1>Today's Attendance</h1> </br>
+					<table style="width:70vw; font-size: 2em; border: .1em solid #AC9B62" >
+						<th>Student Name</th>
+						<th>Student ID</th>
+						<th>Check in Time</th>
+						<th>Check Out Time</th>
+						{% for pet in attendance_records %}
+						<tr>
+							<td style="text-align:center">{{ pet.studentName }}</td>
+							<td style="text-align:center">{{ pet.studentID }}</td>
+							<td style="text-align:center">{{ pet.studentCheckInTime }}</td>
+							<td style="text-align:center"> {{pet.studentCheckOutTime }}</td>
+
+						</tr>
+						{% endfor %}
+					<table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

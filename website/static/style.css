@@ -10,8 +10,8 @@
 
 .registercontent{
 	margin: 0 auto;
-	height: 720px;
-	width: 400px;
+	height: 100vh;
+	width: 100vw;
 	background-color: #e6ffee;
 	border-radius: 10px;
 }
@@ -25,10 +25,11 @@
 }
 
 .registertop{
-	height: 60px;
-	width: 400px;
+	height: 10vh;
+	width: 100vw;
 	background-color: #AC9B62;
 	color: #ffffff;
+	padding-top: 1.75%;
 }
 
 .textbox{
@@ -119,8 +120,11 @@
 
 .one .two ul li a .side{
 	width: 25px;
-	align:center;
 }
+
+
+
+
 
 .one .content{
 	width: 100%;
@@ -136,11 +140,41 @@
 		
 .one .content .contentbar{
 	margin: auto;
+	font-size: 10px;
 }
-
 .one .content .contentbar h1{
 	color: #ac9b62;
 	text-align: center;
 	font-style: oblique;
 	font-weight: bold;
+}
+
+
+.row {
+	margin-right: 15px;
+	margin-left: 15px;
+  }
+.col-md-4{
+	position: relative;
+	min-height: 1px;
+	padding-right: 45px;
+	padding-left: 45px;
+	float: left;
+	font-size: 2em;
+	width: 50%;
+}
+
+.credits{
+	position: relative;
+	min-height: 1px;
+	padding-right: 30%;
+	padding-left: 30%;
+	padding-top: 30vh;
+	float: left;
+	font-size: 2em;
+	width: 100%;
+}
+
+.bee {
+	width: 2vw;
 }

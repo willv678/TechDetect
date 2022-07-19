@@ -2,23 +2,23 @@
 
 <html lang="en">
 	<head>
-		<title>TechDetect</title>
+		<title>display</title>
 		<link rel="stylesheet" href="../static/style.css">
-		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 	</head>
 	<body bgcolor="#e6ffee">
 		<div class="one">
 			<div class="two">
-				<h1>TechDetect</h1>
+				<h1>Side Bar</h1>
 				<ul>
 					<li><a href="{{url_for('index')}}">Home</a></li>
-					<li class="active"><a href="{{url_for('display')}}">Students</a></li>
+					<li  class="active"><a href="{{url_for('display')}}">Attendance</a></li>
+					<li><a href="{{url_for('pets')}}">Students</a></li>
 					<li><a href="{{url_for('logout')}}">Log Out</a></li>
 				</ul>
 			</div>
 			<div class="content" align="center">
 				<div class="topbar">
-					<h2>Database Viewer </h2>						
+					<h2>Welcome!! You are in Display Page!! </h2>						
 				</div> </br>
 				<div class="contentbar">
 					<h1>Your Details</h1> </br>

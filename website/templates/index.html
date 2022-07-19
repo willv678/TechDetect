@@ -12,8 +12,8 @@
 				<h1>TechDetect</h1>
 				<ul>
 					<li class="active"><a href="{{url_for('index')}}">Home</a></li>
-					<li><a href="{{url_for('display')}}">Students</a></li>
-					<li><a href="{{url_for('pets')}}">Pets</a></li>
+					<li><a href="{{url_for('pet')}}">Attendance</a></li>
+					<li><a href="{{url_for('pets')}}">Students</a></li>
 					<li><a href="{{url_for('logout')}}">Log Out</a></li>
 				</ul>
 			</div>
@@ -22,10 +22,35 @@
 					<h2>Database Viewer </h2>						
 				</div></br></br>
 				<div class="contentbar">
-					<div class="msg">{{ msg }}</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h2>View Students</h2>
+							<br>
+							<p>
+								<b>C</b>reate, <b>R</b>ead, <b>U</b>pdate, and <b>D</b>estroy student records. 
+							</p>
+							<br>
+							<p><a class="btn btn-default" href="{{url_for('pets')}}">Students &raquo;</a></p>
+						</div>
+						<div class="col-md-4">
+							<h2>View Attendance</h2>
+							<br>
+							<p>Easily view past and current live attendance info</p>
+							<br>
+							<p><a class="btn btn-default" href="{{url_for('pet')}}">Attendance &raquo;</a></p>
+						</div>
+					</div>
+						<div class="credits">
+							<h2>About TechDetect</h2>
+							<p>TechDetect is a python opencv-powered facial detection and check in program allowing users to submit and read info from an SQL database using nothing but their faces. All data can be easily accessed here on the TechDetect website by anyone with a login, allowing monitoring of real-time data as well as previous day's attendances.</p>
+							<br>
+							<p><a class="btn btn-default" href="https://www.gtri.gatech.edu/">Learn more &raquo;</a></p>
+						</div>
 				</div>
 				
 			</div>
+			
 		</div>
+
 	</body>
 </html>

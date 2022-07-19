@@ -3,6 +3,8 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
+import textwrap
+from datetime import datetime
 
 config = {
     "DEBUG": True  # run app in debug mode
@@ -19,6 +21,10 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'Oatmeal_007'
 app.config['MYSQL_DB'] = 'techDetect'
 
+date = datetime.now()
+dateString = str(date)
+todayDate = (textwrap.shorten(dateString, 11, placeholder = ''))
+todayDate = todayDate.replace("-","_")
 
 mysql = MySQL(app)
 
@@ -75,7 +81,6 @@ def register():
 		msg = 'Please fill out the form !'
 	return render_template('register.html', msg = msg)
 
-
 @app.route("/index")
 def index():
 	if 'loggedin' in session:
@@ -117,14 +122,24 @@ def update():
 		return render_template("update.html", msg = msg, account = account)
 	return redirect(url_for('login'))
 
-@app.route("/pets")
+@app.route("/students")
 def pets():
     if 'loggedin' in session:
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM techDetect WHERE owner_id = % s', (session['id'], ))
+        cursor.execute('SELECT * FROM students')
         pet_records = cursor.fetchall()
-        return render_template("pets.html", pet_records = pet_records)
+        return render_template("students.html", pet_records = pet_records)
     return redirect(url_for('login'))
+
+@app.route("/attendance")
+def pet	():
+	global todayDate
+	if 'loggedin' in session:
+		cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+		cursor.execute('SELECT * FROM attendance_'+todayDate+'')
+		attendance_records = cursor.fetchall()
+		return render_template("attendance.html", attendance_records = attendance_records)
+	return redirect(url_for('login'))	
 
 if __name__ == "__main__":
 	app.run(host ="localhost", debug = True, port = int("5000"))
