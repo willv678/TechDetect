@@ -1,4 +1,4 @@
-# Tech-Detect
+# TechDetect
 Facial Detection Software
 
 
