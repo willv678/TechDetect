@@ -10,3 +10,6 @@ The program consists of two programs, one to create the face info, with the othe
 
 
 MYSQL SERVER IS REQUIRED
+
+
+[![Watch a showcase video!](https://i.imgur.com/9gYFB6v.png)](https://youtu.be/d2FrQ339IU0)
