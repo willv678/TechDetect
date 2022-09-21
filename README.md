@@ -1,15 +1,7 @@
-# TechDetect
-Facial Detection Software
+# TechDetect Attendance Manager
+TechDetect is a python open-cv powered facial detection program that connects to a mySQL database and flask site to allow teams, schools, or corporations to keep tract of attendance using facial detection. The system was developed during my 2022 STEM@GTRI Internship.
 
-
-Tech Detect bring facial detection to everyday life, offering solutions to education and the workforce, 
-using open computer vision to detect faces and clock in and clock out students and workers alike.
-
-
-The program consists of two programs, one to create the face info, with the other reading and uploading data to an mySQL database.
-
-
-MYSQL SERVER IS REQUIRED
-
-
-[![Watch a showcase video!](https://i.imgur.com/9gYFB6v.png)](https://youtu.be/d2FrQ339IU0)
+## Setup
+### MySQL
+TechDetect requires a running MySQL Database installed locally on the host machine. [Install Here](https://dev.mysql.com/downloads/mysql/).
+Any credentials will work with the program, as it will prompt the user with login credentials upon starting the appliocation.
