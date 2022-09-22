@@ -36,6 +36,10 @@ Download the program from above or by running
 
 - The program will open a openCV window, which captures 75 images of the users face, saving them into a folder in ```./Datasets/name```. Afterwards, the information will be uploaded to the SQL database under ```TechDetect/Users```
 
+
+<img src="https://i.ibb.co/wchCTWp/ME.png" height="250">
+<sub> Here are some of the photos the application took of me, I used grayscale and image downsizing to make the faces as easy as possible for my program to detect.</sub>
+
 ### Main Application
 - Open ```TechDetect.py``` and enter your database credentials
 - TechDetect will now open the main window, a camera window that constantly analyzes video input, detecting faces and comparing them to the currently existing database, returning values drawn over the user's face if a customizable confidence score is met, returning *unknown* in event of a low confidence score
@@ -48,8 +52,8 @@ Download the program from above or by running
 ## Web Panel
 All data can be accessed under a locally hosted Flask site. To start the site, run ```app.py``` in the ```./website``` folder. The website will then be hosted locally, which can be accessed from any internet browser on your machine.
 
-<img src="https://i.ibb.co/D7SLFFp/flaskURL.png" height="100">
-
+<img src="https://i.ibb.co/D7SLFFp/flaskURL.png">
+<sub> Here you can see the URL to our locally hosted site, the default port is 8585. </sub>
 
 ### Logins
 The Flask site is held behind a login system, with user logins maintained in our SQL database. To add a user, either insert a new record in the login databse, or hit register on the localhost site and enter credentials.
