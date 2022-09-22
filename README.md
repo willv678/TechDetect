@@ -39,13 +39,23 @@ Download the program from above or by running
 ### Main Application
 - Open ```TechDetect.py``` and enter your database credentials
 - TechDetect will now open the main window, a camera window that constantly analyzes video input, detecting faces and comparing them to the currently existing database, returning values drawn over the user's face if a customizable confidence score is met, returning *unknown* in event of a low confidence score
- ### Hand Detection
+
+<img src="https://i.ibb.co/TbjPf6v/tech-Detectwhatdoesitdo.png" height="250">
+
+### Hand Detection
  Additionally, TechDetect features Google's mediapipe ai library in order to track hand movements onscreen, allowing for further implementation of code to run commands based on hand input. This feature was built primarily with education in mind, as the program comes with pre-concieved functions that already detect a hand raised and lowered as well as who it belongs to.
 
 ## Web Panel
 All data can be accessed under a locally hosted Flask site. To start the site, run ```app.py``` in the ```./website``` folder. The website will then be hosted locally, which can be accessed from any internet browser on your machine.
+
+<img src="https://i.ibb.co/D7SLFFp/flaskURL.png" height="100">
+
+
 ### Logins
 The Flask site is held behind a login system, with user logins maintained in our SQL database. To add a user, either insert a new record in the login databse, or hit register on the localhost site and enter credentials.
+
+<img src="https://i.ibb.co/WzTwP3R/Tech-Detect-Login-Photo.png" height="250">
+
 ### Viewing Data
 Welcome to our site! You can view today's attendance records with login and logout times that can be organized by either of these factors of by name or id numbers. Additionally, another page holds information of all registered users for view on the website, eliminating the need of a complex database CRUD workbench app.
 
